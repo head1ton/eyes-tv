@@ -27,9 +27,10 @@ export default class extends React.Component {
             } = await movies.getPopular());
             ({
                 data: { results: nowPlaying }
-            } = await movies.nowPlaying());
-        } catch {
+            } = await movies.getNowPlaying());
+        } catch (error) {
             // this.setState({ error: "Can't get Movies." });
+            console.log(error);
             error = "Can't get Movies.";
         } finally {
             // this.setState({ loading: false });
@@ -45,6 +46,13 @@ export default class extends React.Component {
 
     render() {
         const { loading, upcoming, popular, nowPlaying } = this.state;
-        return <MoviesPresenter loading={loading} />;
+        return (
+            <MoviesPresenter
+                upcoming={upcoming}
+                popular={popular}
+                nowPlaying={nowPlaying}
+                loading={loading}
+            />
+        );
     }
 }
