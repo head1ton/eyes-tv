@@ -8,16 +8,22 @@ const MainNavigation = createStackNavigator(
     {
         Tabs: {
             screen: TabNavigation,
-            navigationOptions: { headerShown: false }
+            navigationOptions: {
+                headerShown: false,
+                headerBackTitleVisible: false
+            }
         },
         Detail: {
             screen: DetailScreen,
             navigationOptions: {
-                ...headerStyles
+                ...headerStyles,
+                headerBackTitleVisible: false
             }
         }
     },
-    {}
+    {
+        headerMode: "screen"
+    }
 );
 
 export default createAppContainer(MainNavigation);
