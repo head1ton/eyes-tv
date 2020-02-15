@@ -1,7 +1,8 @@
 import React from "react";
-import { AppLoading, Font } from "expo";
+import { AppLoading } from "expo";
 import { Ionicons } from "@expo/vector-icons";
 import { StyleSheet, Text, View } from "react-native";
+import * as Font from "expo-font";
 
 export default class App extends React.Component {
     state = {

@@ -8,3 +8,5 @@ yarn add @expo/vector-icons
 yarn add axios
 yarn add prop-types
 yarn add styled-components
+
+1111
