@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
     baseURL: "https://api.themoviedb.org/3/",
-    params: { api_key: "a5355071c234b96166b4f48b52d2ee19", language: "ko-Kr" } // en-US
+    params: { api_key: "a5355071c234b96166b4f48b52d2ee19", language: "ko-KR" } // en-US
 });
 
 export const movies = {
@@ -14,7 +14,8 @@ export const movies = {
     searchMovies: term =>
         api.get("search/movie", {
             params: {
-                query: encodeURIComponent(term)
+                // query: encodeURIComponent(term)
+                query: term
             }
         })
 };
@@ -28,7 +29,8 @@ export const tv = {
     searchTv: term =>
         api.get("search/tv", {
             params: {
-                query: encodeURIComponent(term)
+                // query: encodeURIComponent(term)
+                query: term
             }
         })
 };
