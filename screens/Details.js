@@ -1,4 +1,4 @@
 import React from "react";
 import { Text } from "react-native";
 
-export default () => <Text>Details</Text>;
+export default props => <Text>{JSON.stringify(props)}</Text>;

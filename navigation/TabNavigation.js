@@ -49,7 +49,7 @@ const TabNavigation = createBottomTabNavigator(
         }
     },
     {
-        initialRouteName: "Search",
+        // initialRouteName: "Search", // 앱 열면 제일 먼저 열리도록...
         tabBarOptions: {
             showLabel: false,
             style: {
