@@ -20,11 +20,17 @@
         },
         "assetBundlePatterns": ["**/*"],
         "ios": {
-            "supportsTablet": true
+            "supportsTablet": true,
+            "bundleIdentifier": "co.eyes.eyes_movieapp",
+            "buildNumber": "1.0.0"
         },
         "androidStatusBar": {
             "barStyle": "light-content",
             "backgroundColor": "#000"
+        },
+        "android": {
+            "package": "co.eyes.eyes_movies",
+            "versionCode": 1
         }
     }
 }
