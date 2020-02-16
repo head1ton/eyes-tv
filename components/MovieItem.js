@@ -4,32 +4,35 @@ import styled from "styled-components";
 import MoviePoster from "./MoviePoster";
 import MovieRating from "./MovieRating";
 import { GREY_COLOR } from "../constants/Colors";
+import Layout from "../constants/Layout";
 
 const Container = styled.View`
     align-items: center;
     margin-right: 20px;
 `;
 
+const Title = styled.Text`
+    color: white;
+    font-size: ${props => (!props.big ? "12px" : "14px")};
+    margin-vertical: 5px;
+`;
+
 const HContainer = styled.View`
+    flex: 1;
     margin-bottom: 20px;
     flex-direction: row;
 `;
 
 const Column = styled.View`
     margin-left: 20px;
-    width: 60%;
+    width: ${Layout.width / 2}px;
+    margin-right: 20px;
 `;
 
 const Overview = styled.Text`
     color: ${GREY_COLOR};
     font-size: 12px;
     margin-vertical: 10px;
-`;
-
-const Title = styled.Text`
-    color: white;
-    font-size: ${props => (!props.big ? "12px" : "14px")};
-    margin-vertical: 5px;
 `;
 
 const MovieItem = ({
