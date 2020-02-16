@@ -21,7 +21,7 @@ const Header = styled.View`
 const BgImage = styled.Image`
     width: ${Layout.width}px;
     height: ${Layout.height / 3.5}px;
-    opacity: 0.3;
+    /* opacity: 0.3; */
     position: absolute;
     top: 0;
 `;
@@ -56,11 +56,22 @@ const ContentTitle = styled.Text`
     margin-bottom: 10px;
 `;
 
-const Overview = styled.Text`
-    width: 80%;
+const ContentValue = styled.Text`
+    width: 90%;
     color: ${TINT_COLOR};
     font-size: 12px;
     margin-bottom: 10px;
+`;
+
+const DataContainer = styled.View`
+    margin-bottom: 10px;
+`;
+
+const Genres = styled.Text`
+    color: ${TINT_COLOR};
+    font-size: 12px;
+    margin-top: 10px;
+    width: 95%;
 `;
 
 const DetailPresenter = ({
@@ -71,25 +82,61 @@ const DetailPresenter = ({
     title,
     voteAvg,
     loading,
-    overview
+    overview,
+    status,
+    date,
+    genres
 }) => (
     <Container>
         <Header>
             <BgImage source={{ uri: makePhotoUrl(backgroundPhoto) }} />
-            <>
+            <LinearGradient
+                colors={["transparent", "black"]}
+                start={Platform.select({
+                    ios: [0, 0]
+                })}
+                end={Platform.select({
+                    ios: [0, 0.5],
+                    android: [0, 0.9]
+                })}
+            >
                 <Content>
                     <MoviePoster path={posterPhoto} />
                     <Column>
                         <Title>{title}</Title>
+                        <MovieRating inSlide={true} votes={voteAvg} />
+                        {genres ? (
+                            <Genres>
+                                {genres.map((genre, index) =>
+                                    index === genres.length - 1
+                                        ? genre.name
+                                        : `${genre.name} / `
+                                )}
+                            </Genres>
+                        ) : null}
                     </Column>
                 </Content>
-            </>
+            </LinearGradient>
             <MainContent>
                 {overview ? (
-                    <>
+                    <DataContainer>
                         <ContentTitle>Overview</ContentTitle>
-                        <Overview>{overview}</Overview>
-                    </>
+                        <ContentValue>{overview}</ContentValue>
+                    </DataContainer>
+                ) : null}
+                {status ? (
+                    <DataContainer>
+                        <ContentTitle>Status</ContentTitle>
+                        <ContentValue>{status}</ContentValue>
+                    </DataContainer>
+                ) : null}
+                {date ? (
+                    <DataContainer>
+                        <ContentTitle>
+                            {isMovie ? "Release Date" : "First Episode"}
+                        </ContentTitle>
+                        <ContentValue>{date}</ContentValue>
+                    </DataContainer>
                 ) : null}
                 {loading ? <Loader /> : null}
             </MainContent>
@@ -105,6 +152,9 @@ DetailPresenter.propTypes = {
     title: PropTypes.string.isRequired,
     voteAvg: PropTypes.number,
     overview: PropTypes.string,
+    status: PropTypes.string,
+    date: PropTypes.string,
+    genres: PropTypes.array,
     loading: PropTypes.bool.isRequired
 };
 

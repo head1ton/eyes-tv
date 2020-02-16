@@ -68,16 +68,13 @@ export default class extends React.Component {
         } catch (error) {
             console.log(error);
         } finally {
-            this.setState(prev => {
-                return {
-                    ...prev,
-                    loading: false,
-                    genres,
-                    backgroundPhoto,
-                    overview,
-                    status,
-                    date
-                };
+            this.setState({
+                loading: false,
+                genres,
+                backgroundPhoto,
+                overview,
+                status,
+                date
             });
         }
     }
