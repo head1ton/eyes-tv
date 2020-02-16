@@ -16,6 +16,7 @@ export default class extends React.Component {
                 state: {
                     params: {
                         id,
+                        isMovie,
                         posterPhoto,
                         backgroundPhoto,
                         title,
@@ -28,12 +29,22 @@ export default class extends React.Component {
 
         this.state = {
             id,
+            isMovie,
             posterPhoto,
             backgroundPhoto,
             title,
             voteAvg,
-            overview
+            overview,
+            loading: true
         };
+    }
+
+    async componentDidMount() {
+        try {
+        } catch {
+        } finally {
+            this.setState({ loading: false });
+        }
     }
 
     render() {
@@ -43,7 +54,8 @@ export default class extends React.Component {
             backgroundPhoto,
             title,
             voteAvg,
-            overview
+            overview,
+            loading
         } = this.state;
         // console.log(backgroundPhoto);
         return (
@@ -54,6 +66,7 @@ export default class extends React.Component {
                 title={title}
                 voteAvg={voteAvg}
                 overview={overview}
+                loading={loading}
             />
         );
     }
