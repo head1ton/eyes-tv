@@ -1,5 +1,5 @@
 import React from "react";
-import { Text } from "react-native";
+import PropTypes from "prop-types";
 import DetailPresenter from "./DetailPresenter";
 
 export default class extends React.Component {
@@ -45,7 +45,7 @@ export default class extends React.Component {
             voteAvg,
             overview
         } = this.state;
-
+        // console.log(backgroundPhoto);
         return (
             <DetailPresenter
                 id={id}
