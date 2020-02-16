@@ -68,13 +68,16 @@ export default class extends React.Component {
         } catch (error) {
             console.log(error);
         } finally {
-            this.setState({
-                loading: false,
-                genres,
-                backgroundPhoto,
-                overview,
-                status,
-                date
+            this.setState(prev => {
+                return {
+                    ...prev,
+                    loading: false,
+                    genres,
+                    backgroundPhoto,
+                    overview,
+                    status,
+                    date
+                };
             });
         }
     }
@@ -93,12 +96,12 @@ export default class extends React.Component {
             status,
             genres
         } = this.state;
-        console.log("id : ", id);
-        console.log("posterPhoto : ", posterPhoto);
-        console.log("backgroundPhoto : ", backgroundPhoto);
-        console.log("title : ", title);
-        console.log("voteAvg : ", voteAvg);
-        console.log("overview : ", overview);
+        // console.log("id : ", id);
+        // console.log("posterPhoto : ", posterPhoto);
+        // console.log("backgroundPhoto : ", backgroundPhoto);
+        // console.log("title : ", title);
+        // console.log("voteAvg : ", voteAvg);
+        // console.log("overview : ", overview);
         return (
             <DetailPresenter
                 id={id}
