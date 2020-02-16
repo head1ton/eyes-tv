@@ -21,7 +21,7 @@
         "assetBundlePatterns": ["**/*"],
         "ios": {
             "supportsTablet": true,
-            "bundleIdentifier": "co.eyes.eyes_movieapp",
+            "bundleIdentifier": "co.head1ton.eyes_movieapp",
             "buildNumber": "1.0.0"
         },
         "androidStatusBar": {
@@ -29,7 +29,7 @@
             "backgroundColor": "#000"
         },
         "android": {
-            "package": "co.eyes.eyes_movies",
+            "package": "co.head1ton.eyes_movies",
             "versionCode": 1
         }
     }
