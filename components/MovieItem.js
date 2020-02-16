@@ -51,7 +51,15 @@ const MovieItem = ({
         onPress={() =>
             navigation.navigate({
                 routeName: "Detail",
-                params: { isMovie, id }
+                params: {
+                    isMovie,
+                    id,
+                    posterPhoto,
+                    backgroundPhoto: null,
+                    title,
+                    voteAvg,
+                    overview
+                }
             })
         }
     >
