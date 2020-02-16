@@ -1,7 +1,7 @@
 import React from "react";
 import { Platform } from "react-native";
 import PropTypes from "prop-types";
-import { LinearGradient } from "expo";
+import { LinearGradient } from "expo-linear-gradient";
 import styled from "styled-components";
 import MoviePoster from "../../components/MoviePoster";
 import { BG_COLOR, TINT_COLOR } from "../../constants/Colors";
@@ -12,7 +12,6 @@ import Loader from "../../components/Loader";
 
 const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
-    flex: 1;
 `;
 
 const Header = styled.View`
@@ -28,8 +27,8 @@ const BgImage = styled.Image`
 `;
 
 const Content = styled.View`
-    flex: 1;
     flex-direction: row;
+    width: 80%;
     align-items: flex-end;
     padding-horizontal: 20px;
     height: ${Layout.height / 3.5}px;
@@ -66,6 +65,7 @@ const Overview = styled.Text`
 
 const DetailPresenter = ({
     id,
+    isMovie,
     posterPhoto,
     backgroundPhoto,
     title,
@@ -76,23 +76,14 @@ const DetailPresenter = ({
     <Container>
         <Header>
             <BgImage source={{ uri: makePhotoUrl(backgroundPhoto) }} />
-            <LinearGradient
-                colors={["transparent", "black"]}
-                start={Platform.select({
-                    ios: [0, 0]
-                })}
-                end={Platform.select({
-                    ios: [0, 0.5],
-                    android: [0, 0.9]
-                })}
-            >
+            <>
                 <Content>
                     <MoviePoster path={posterPhoto} />
                     <Column>
                         <Title>{title}</Title>
                     </Column>
                 </Content>
-            </LinearGradient>
+            </>
             <MainContent>
                 {overview ? (
                     <>
@@ -108,6 +99,7 @@ const DetailPresenter = ({
 
 DetailPresenter.propTypes = {
     id: PropTypes.number.isRequired,
+    isMovie: PropTypes.bool.isRequired,
     posterPhoto: PropTypes.string.isRequired,
     backgroundPhoto: PropTypes.string,
     title: PropTypes.string.isRequired,

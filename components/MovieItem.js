@@ -20,7 +20,6 @@ const Title = styled.Text`
 `;
 
 const HContainer = styled.View`
-    flex: 1;
     margin-bottom: 20px;
     flex-direction: row;
 `;
