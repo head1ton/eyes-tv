@@ -7,7 +7,7 @@
         "sdkVersion": "36.0.0",
         "platforms": ["ios", "android", "web"],
         "primaryColor": "#000000",
-        "version": "1.0.0",
+        "version": "1.0.2",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
         "splash": {
@@ -21,16 +21,17 @@
         "assetBundlePatterns": ["**/*"],
         "ios": {
             "supportsTablet": true,
-            "bundleIdentifier": "co.head1ton.eyes_movieapp",
-            "buildNumber": "1.0.0"
+            "bundleIdentifier": "com.head1ton.eyesmoviesapp",
+            "buildNumber": "1.0.2"
         },
         "androidStatusBar": {
             "barStyle": "light-content",
             "backgroundColor": "#000"
         },
         "android": {
-            "package": "co.head1ton.eyes_movies",
-            "versionCode": 1
+            "package": "com.head1ton.eyesmovies",
+            "versionCode": 3,
+            "permissions": []
         }
     }
 }

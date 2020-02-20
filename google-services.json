@@ -1,0 +1,40 @@
+{
+    "project_info": {
+        "project_number": "1049961942389",
+        "firebase_url": "https://eyes-movies.firebaseio.com",
+        "project_id": "eyes-movies",
+        "storage_bucket": "eyes-movies.appspot.com"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:1049961942389:android:645d5a920c7fbe8fa5573c",
+                "android_client_info": {
+                    "package_name": "com.head1ton.eyesmovies"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "1049961942389-a3pu6rum4su7biv2nt7gt427deudj3rj.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyBxlV2odDSJ7wvzf8dEfo_C3HLHDl1n5L8"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "1049961942389-a3pu6rum4su7biv2nt7gt427deudj3rj.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}
