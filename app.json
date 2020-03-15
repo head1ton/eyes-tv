@@ -1,37 +1,49 @@
 {
-    "expo": {
-        "name": "Eyes-Movies",
-        "slug": "Eyes-Movies",
-        "description": "Discover Movies and Series in a beatuiful way.!",
-        "privacy": "public",
-        "sdkVersion": "36.0.0",
-        "platforms": ["ios", "android", "web"],
-        "primaryColor": "#000000",
-        "version": "1.0.2",
-        "orientation": "portrait",
-        "icon": "./assets/icon.png",
-        "splash": {
-            "image": "./assets/splash.png",
-            "resizeMode": "contain",
-            "backgroundColor": "#000000"
-        },
-        "updates": {
-            "fallbackToCacheTimeout": 0
-        },
-        "assetBundlePatterns": ["**/*"],
-        "ios": {
-            "supportsTablet": true,
-            "bundleIdentifier": "com.head1ton.eyesmoviesapp",
-            "buildNumber": "1.0.2"
-        },
-        "androidStatusBar": {
-            "barStyle": "light-content",
-            "backgroundColor": "#000"
-        },
-        "android": {
-            "package": "com.head1ton.eyesmovies",
-            "versionCode": 3,
-            "permissions": []
-        }
+  "expo": {
+    "name": "Eyes-Movies",
+    "slug": "Eyes-Movies",
+    "description": "Discover Movies and Series in a beatuiful way.!",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "primaryColor": "#000000",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#000000"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.head1ton.eyesmoviesapp",
+      "buildNumber": "1.0.3",
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6088344770092597/9701080991"
+      }
+    },
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#000"
+    },
+    "android": {
+      "package": "com.head1ton.eyesmovies",
+      "versionCode": 4,
+      "permissions": [],
+      "config": {
+        "googleMobileAdsAppId": "ca-app-pub-6088344770092597/9701080991"
+      }
     }
+  }
 }

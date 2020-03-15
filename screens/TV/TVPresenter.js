@@ -6,9 +6,16 @@ import Loader from "../../components/Loader";
 import MovieItem from "../../components/MovieItem";
 import Section from "../../components/Section";
 import { BG_COLOR } from "../../constants/Colors";
+import AdMobB from "../../components/AdMobB";
 
 const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
+`;
+
+const View = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
 `;
 
 const TVPresenter = ({ loading, popular, airingThisWeek, airingToday }) =>
@@ -32,6 +39,9 @@ const TVPresenter = ({ loading, popular, airingThisWeek, airingToday }) =>
                         ))}
                 </Section>
             ) : null}
+            <View>
+                <AdMobB />
+            </View>
             {airingThisWeek ? (
                 <Section title="Airing this Week">
                     {airingThisWeek

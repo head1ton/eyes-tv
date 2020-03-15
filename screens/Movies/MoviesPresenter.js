@@ -6,34 +6,65 @@ import MovieSlider from "../../components/MovieSlider";
 import { BG_COLOR } from "../../constants/Colors";
 import Section from "../../components/Section";
 import MovieItem from "../../components/MovieItem";
+import AdMobB from "../../components/AdMobB";
 
 const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
 `;
 
-const MoviesPresenter = ({ loading, upcoming, popular, nowPlaying }) =>
+const View = styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Touchable = styled.TouchableOpacity`
+    align-items: center;
+    justify-content: center;
+`;
+
+const Text = styled.Text`
+    font-size: 13px;
+    color: #ffffff;
+`;
+
+const MoviesPresenter = ({
+    loading,
+    upcoming,
+    popular,
+    nowPlaying,
+    showInterstitial
+}) =>
     loading ? (
         <Loader />
     ) : (
         <Container>
             {nowPlaying ? <MovieSlider movies={nowPlaying} /> : null}
+            <View>
+                <AdMobB />
+            </View>
             {upcoming ? (
-                <Section title="Upcoming Movies">
-                    {upcoming
-                        .filter(movie => movie.poster_path !== null)
-                        .map(movie => (
-                            <MovieItem
-                                key={movie.id}
-                                id={movie.id}
-                                posterPhoto={movie.poster_path}
-                                title={movie.title}
-                                voteAvg={movie.vote_average}
-                            />
-                        ))}
-                </Section>
+                <>
+                    {/* <Touchable onPress={() => showInterstitial()}>
+                        <Text>Interstitial</Text>
+                    </Touchable> */}
+                    <Section title="🏖 Upcoming Movies">
+                        {upcoming
+                            .filter(movie => movie.poster_path !== null)
+                            .map(movie => (
+                                <MovieItem
+                                    key={movie.id}
+                                    id={movie.id}
+                                    posterPhoto={movie.poster_path}
+                                    title={movie.title}
+                                    voteAvg={movie.vote_average}
+                                />
+                            ))}
+                    </Section>
+                </>
             ) : null}
             {popular ? (
-                <Section title="Popular Movies">
+                <Section title="🚀 Popular Movies">
                     {popular
                         .filter(movie => movie.poster_path !== null)
                         .map(movie => (
@@ -56,7 +87,8 @@ MoviesPresenter.propTypes = {
     loading: PropTypes.bool.isRequired,
     upcoming: PropTypes.array,
     popular: PropTypes.array,
-    nowPlaying: PropTypes.array
+    nowPlaying: PropTypes.array,
+    showInterstitial: PropTypes.func
 };
 
 export default MoviesPresenter;

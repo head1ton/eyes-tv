@@ -9,6 +9,7 @@ import Layout from "../../constants/Layout";
 import makePhotoUrl from "../../utils/makePhotoUrl";
 import MovieRating from "../../components/MovieRating";
 import Loader from "../../components/Loader";
+import AdMobB from "../../components/AdMobB";
 
 const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
@@ -140,6 +141,7 @@ const DetailPresenter = ({
                 ) : null}
                 {loading ? <Loader /> : null}
             </MainContent>
+            <AdMobB />
         </Header>
     </Container>
 );
