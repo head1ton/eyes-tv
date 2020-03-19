@@ -24,7 +24,7 @@ const TVPresenter = ({ loading, popular, airingThisWeek, airingToday }) =>
     ) : (
         <Container>
             {airingToday ? (
-                <Section title="Airing Today">
+                <Section title="🌄 Airing Today">
                     {airingToday
                         .filter(tv => tv.poster_path !== null)
                         .map(tv => (
@@ -43,7 +43,7 @@ const TVPresenter = ({ loading, popular, airingThisWeek, airingToday }) =>
                 <AdMobB />
             </View>
             {airingThisWeek ? (
-                <Section title="Airing this Week">
+                <Section title="🌠 Airing this Week">
                     {airingThisWeek
                         .filter(tv => tv.poster_path !== null)
                         .map(tv => (
@@ -59,7 +59,7 @@ const TVPresenter = ({ loading, popular, airingThisWeek, airingToday }) =>
                 </Section>
             ) : null}
             {popular ? (
-                <Section title="Popular" horizontal={false}>
+                <Section title="🌃 Popular" horizontal={false}>
                     {popular
                         .filter(tv => tv.poster_path !== null)
                         .map(tv => (

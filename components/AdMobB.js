@@ -9,7 +9,7 @@ import {
 
 const AdMobB = () => (
     <AdMobBanner
-        bannerSize="smartBannerPortrait"
+        bannerSize="smartBannerPortrait" //fullBanner
         adUnitID="ca-app-pub-6088344770092597/9701080991"
         servePersonalizedAds={true}
     />

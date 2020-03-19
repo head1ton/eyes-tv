@@ -15,6 +15,19 @@ const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
 `;
 
+const BannerView = styled.View`
+    /* flex: 1; */
+    /* justify-content: center;
+    align-items: center; */
+    position: absolute;
+    bottom: 0;
+`;
+
+const PaddingView = styled.View`
+    background-color: ${BG_COLOR};
+    padding-bottom: 90px;
+`;
+
 const Header = styled.View`
     position: relative;
 `;
@@ -88,62 +101,67 @@ const DetailPresenter = ({
     date,
     genres
 }) => (
-    <Container>
-        <Header>
-            <BgImage source={{ uri: makePhotoUrl(backgroundPhoto) }} />
-            <LinearGradient
-                colors={["transparent", "black"]}
-                start={Platform.select({
-                    ios: [0, 0]
-                })}
-                end={Platform.select({
-                    ios: [0, 0.5],
-                    android: [0, 0.9]
-                })}
-            >
-                <Content>
-                    <MoviePoster path={posterPhoto} />
-                    <Column>
-                        <Title>{title}</Title>
-                        <MovieRating inSlide={true} votes={voteAvg} />
-                        {genres ? (
-                            <Genres>
-                                {genres.map((genre, index) =>
-                                    index === genres.length - 1
-                                        ? genre.name
-                                        : `${genre.name} / `
-                                )}
-                            </Genres>
-                        ) : null}
-                    </Column>
-                </Content>
-            </LinearGradient>
-            <MainContent>
-                {overview ? (
-                    <DataContainer>
-                        <ContentTitle>Overview</ContentTitle>
-                        <ContentValue>{overview}</ContentValue>
-                    </DataContainer>
-                ) : null}
-                {status ? (
-                    <DataContainer>
-                        <ContentTitle>Status</ContentTitle>
-                        <ContentValue>{status}</ContentValue>
-                    </DataContainer>
-                ) : null}
-                {date ? (
-                    <DataContainer>
-                        <ContentTitle>
-                            {isMovie ? "Release Date" : "First Episode"}
-                        </ContentTitle>
-                        <ContentValue>{date}</ContentValue>
-                    </DataContainer>
-                ) : null}
-                {loading ? <Loader /> : null}
-            </MainContent>
+    <>
+        <Container>
+            <Header>
+                <BgImage source={{ uri: makePhotoUrl(backgroundPhoto) }} />
+                <LinearGradient
+                    colors={["transparent", "black"]}
+                    start={Platform.select({
+                        ios: [0, 0]
+                    })}
+                    end={Platform.select({
+                        ios: [0, 0.5],
+                        android: [0, 0.9]
+                    })}
+                >
+                    <Content>
+                        <MoviePoster path={posterPhoto} />
+                        <Column>
+                            <Title>{title}</Title>
+                            <MovieRating inSlide={true} votes={voteAvg} />
+                            {genres ? (
+                                <Genres>
+                                    {genres.map((genre, index) =>
+                                        index === genres.length - 1
+                                            ? genre.name
+                                            : `${genre.name} / `
+                                    )}
+                                </Genres>
+                            ) : null}
+                        </Column>
+                    </Content>
+                </LinearGradient>
+                <MainContent>
+                    {overview ? (
+                        <DataContainer>
+                            <ContentTitle>Overview</ContentTitle>
+                            <ContentValue>{overview}</ContentValue>
+                        </DataContainer>
+                    ) : null}
+                    {status ? (
+                        <DataContainer>
+                            <ContentTitle>Status</ContentTitle>
+                            <ContentValue>{status}</ContentValue>
+                        </DataContainer>
+                    ) : null}
+                    {date ? (
+                        <DataContainer>
+                            <ContentTitle>
+                                {isMovie ? "Release Date" : "First Episode"}
+                            </ContentTitle>
+                            <ContentValue>{date}</ContentValue>
+                        </DataContainer>
+                    ) : null}
+                    {loading ? <Loader /> : null}
+                </MainContent>
+            </Header>
+        </Container>
+        <PaddingView />
+        <BannerView>
             <AdMobB />
-        </Header>
-    </Container>
+        </BannerView>
+    </>
 );
 
 DetailPresenter.propTypes = {

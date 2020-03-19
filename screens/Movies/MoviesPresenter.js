@@ -12,10 +12,17 @@ const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
 `;
 
-const View = styled.View`
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+const BannerView = styled.View`
+    /* flex: 1; */
+    /* justify-content: center;
+    align-items: center; */
+    position: absolute;
+    bottom: 0;
+`;
+
+const PaddingView = styled.View`
+    background-color: ${BG_COLOR};
+    padding-bottom: 90px;
 `;
 
 const Touchable = styled.TouchableOpacity`
@@ -38,49 +45,52 @@ const MoviesPresenter = ({
     loading ? (
         <Loader />
     ) : (
-        <Container>
-            {nowPlaying ? <MovieSlider movies={nowPlaying} /> : null}
-            <View>
-                <AdMobB />
-            </View>
-            {upcoming ? (
-                <>
-                    {/* <Touchable onPress={() => showInterstitial()}>
+        <>
+            <Container>
+                {nowPlaying ? <MovieSlider movies={nowPlaying} /> : null}
+                {upcoming ? (
+                    <>
+                        {/* <Touchable onPress={() => showInterstitial()}>
                         <Text>Interstitial</Text>
                     </Touchable> */}
-                    <Section title="🏖 Upcoming Movies">
-                        {upcoming
+                        <Section title="🏖 Upcoming Movies">
+                            {upcoming
+                                .filter(movie => movie.poster_path !== null)
+                                .map(movie => (
+                                    <MovieItem
+                                        key={movie.id}
+                                        id={movie.id}
+                                        posterPhoto={movie.poster_path}
+                                        title={movie.title}
+                                        voteAvg={movie.vote_average}
+                                    />
+                                ))}
+                        </Section>
+                    </>
+                ) : null}
+                {popular ? (
+                    <Section title="🚀 Popular Movies">
+                        {popular
                             .filter(movie => movie.poster_path !== null)
                             .map(movie => (
                                 <MovieItem
+                                    horizontal={true}
                                     key={movie.id}
                                     id={movie.id}
                                     posterPhoto={movie.poster_path}
                                     title={movie.title}
+                                    overview={movie.overview}
                                     voteAvg={movie.vote_average}
                                 />
                             ))}
                     </Section>
-                </>
-            ) : null}
-            {popular ? (
-                <Section title="🚀 Popular Movies">
-                    {popular
-                        .filter(movie => movie.poster_path !== null)
-                        .map(movie => (
-                            <MovieItem
-                                horizontal={true}
-                                key={movie.id}
-                                id={movie.id}
-                                posterPhoto={movie.poster_path}
-                                title={movie.title}
-                                overview={movie.overview}
-                                voteAvg={movie.vote_average}
-                            />
-                        ))}
-                </Section>
-            ) : null}
-        </Container>
+                ) : null}
+            </Container>
+            <PaddingView />
+            <BannerView>
+                <AdMobB />
+            </BannerView>
+        </>
     );
 
 MoviesPresenter.propTypes = {
