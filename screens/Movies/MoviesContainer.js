@@ -71,17 +71,17 @@ export default class extends React.Component {
         // );
     }
 
-    componentWillUnmount() {
-        AdMobInterstitial.removeAllListeners();
-    }
+    // componentWillUnmount() {
+    //     AdMobInterstitial.removeAllListeners();
+    // }
 
-    showInterstitial = async () => {
-        console.log("==========");
-        AdMobInterstitial.setAdUnitID("ca-app-pub-6088344770092597/3209014200");
-        await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true });
-        await AdMobInterstitial.showAdAsync();
-        // AdMobInterstitial.requestAd(() => AdMobInterstitial.showAd());
-    };
+    // showInterstitial = async () => {
+    //     console.log("==========");
+    //     AdMobInterstitial.setAdUnitID("ca-app-pub-6088344770092597/3209014200");
+    //     await AdMobInterstitial.requestAdAsync({ servePersonalizedAds: true });
+    //     await AdMobInterstitial.showAdAsync();
+    //     // AdMobInterstitial.requestAd(() => AdMobInterstitial.showAd());
+    // };
 
     render() {
         const { loading, upcoming, popular, nowPlaying } = this.state;
